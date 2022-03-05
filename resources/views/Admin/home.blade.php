@@ -7,7 +7,7 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <h1 class="mt-4">Add faq</h1>
+            <h1 class="mt-4">home</h1>
         </div>
         <!-- /.content -->
     </div>
