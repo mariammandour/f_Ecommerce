@@ -23,7 +23,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <!-- <a class="dropdown-item" href="#">Settings</a> -->
                     <!-- <div class="dropdown-divider"></div> -->
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="{{ url('Admin\logout') }}">Logout</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
