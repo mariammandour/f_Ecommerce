@@ -18,6 +18,8 @@ use App\Http\Controllers\Admin\faqController;
 Route::group(['prefix' => 'Admin', 'as' => 'Admin.'], function () {
     Route::get('login',[AdminAuth::class,'login'])->name('login');
     Route::post('dologin',[AdminAuth::class,'dologin'])->name('dologin');
+    Route::get('/forgetPassword', [AdminAuth::class,'forgetPassword'])->name('forgetPassword');
+    Route::post('/forgetPassword_Post', [AdminAuth::class,'forgetPassword_Post'])->name('forgetPassword_Post');
     Route::group(['middleware' => 'Admin:admin'], function () {
         config('auth.defines', 'Admin');
         Route::get('logout',[AdminAuth::class,'logout'])->name('logout');
