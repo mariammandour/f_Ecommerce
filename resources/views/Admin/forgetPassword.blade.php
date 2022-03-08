@@ -2,12 +2,12 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#">{{trans('Admin.login')}}</a>
+            <a href="#">Reset password</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Write Email</p>
 
                 <form action="{{url('Admin/forgetPassword_Post')}}" method="post">
                     @csrf

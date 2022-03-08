@@ -2,7 +2,7 @@
 # Introduction
 welcome {{$data['data']->name}}
 
-@component('mail::button', ['url' => 'reset/password'.$data['token']])
+@component('mail::button', ['url' => url('Admin/resetpassword/'.$data['token'])])
 click here to reset your password
 @endcomponent
 
