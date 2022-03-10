@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminAuth;
+use App\Http\Controllers\Admin\sliderController;
 use App\Http\Controllers\Admin\faqController;
 
 
@@ -43,4 +44,18 @@ Route::group(['middleware' => 'Admin:admin'], function () {
             Route::put('update', [faqController::class, 'update'])->name('update');
         });
     });
+});
+
+Route::group(['middleware' => 'Admin:admin'],function(){
+    Route::group(['prefix'=> 'Admin', 'as'=> 'admin.'],function(){
+        Route::group(['prefix'=> 'slider', 'as'=> 'slider.'],function(){
+            Route::get('create',[sliderController::class,'create'])->name('create');
+            Route::post('store',[sliderController::class,'store'])->name('store');
+            Route::get('index',[sliderController::class,'index'])->name('index');
+            Route::delete('delete',[sliderController::class,'delete'])->name('delete');
+            Route::get('edit/{faqId}',[sliderController::class,'edit'])->name('edit');
+            Route::put('update',[sliderController::class,'update'])->name('update');
+        });
+    });
+    
 });
