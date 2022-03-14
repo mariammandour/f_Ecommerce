@@ -1,4 +1,3 @@
-
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -26,32 +25,33 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview" style="display: none;">
-                        
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Create</p>
-                            </a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Control</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                
-            </ul>
+                @foreach ($navbars as $navbarItem)
+                    <li class="nav-item">
+                        <a href="{{ url($navbarItem->route.'index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-edit"> {{ $navbarItem->name }}</i>
+                            
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                @if ($navbarItem->name != 'contact us')
+                                    <a href="{{ url($navbarItem->route.'create') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Create</p>
+                                    </a>
+                                @endif
+                                
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ url($navbarItem->route.'index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Control</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endforeach
+                </ul>
         </nav>
         <!-- /.sidebar-menu -->
     </div>

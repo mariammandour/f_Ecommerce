@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminAuth;
-use App\Http\Controllers\Admin\sliderController;
 use App\Http\Controllers\Admin\faqController;
+use App\Http\Controllers\Admin\sliderController;
+use App\Http\Controllers\Admin\contactController;
 
 
 /*
@@ -55,6 +56,17 @@ Route::group(['middleware' => 'Admin:admin'],function(){
             Route::delete('delete',[sliderController::class,'delete'])->name('delete');
             Route::get('edit/{faqId}',[sliderController::class,'edit'])->name('edit');
             Route::put('update',[sliderController::class,'update'])->name('update');
+        });
+    });
+    
+});
+
+Route::group(['middleware' => 'Admin:admin'],function(){
+    Route::group(['prefix'=> 'Admin', 'as'=> 'admin.'],function(){
+        Route::group(['prefix'=> 'links', 'as'=> 'links.'],function(){
+            Route::get('index',[contactController::class,'index'])->name('index');
+            Route::get('edit{linkId}',[contactController::class,'edit'])->name('edit');
+            Route::put('update',[contactController::class,'update'])->name('update');
         });
     });
     
