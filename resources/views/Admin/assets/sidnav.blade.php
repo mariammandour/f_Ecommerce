@@ -18,7 +18,6 @@
             </div>
         </div>
         <!-- SidebarSearch Form -->
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -32,7 +31,7 @@
                         </a>
                         <ul class="nav nav-treeview" style="display: none;">
                             <li class="nav-item">
-                                @if ($navbarItem->name != ('contact us'||'messages'))
+                                @if ($navbarItem->create_link == true)
                                     <a href="{{ url($navbarItem->route.'create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Create</p>

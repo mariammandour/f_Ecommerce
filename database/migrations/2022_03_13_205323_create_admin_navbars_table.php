@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('route');
             $table->integer('ordering')->default(0);
+            $table->boolean('create_link')->default(true);
             $table->timestamps();
         });
     }
