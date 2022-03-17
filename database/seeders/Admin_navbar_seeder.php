@@ -17,9 +17,9 @@ class Admin_navbar_seeder extends Seeder
     {
         $links = [
             [
-                'name' => 'contact us',
-                'route' => 'Admin/links/',
-                'ordering' => 3,
+                'name' => 'messages',
+                'route' => 'Admin/messages/',
+                'ordering' => 4,
             ],
             
         ];

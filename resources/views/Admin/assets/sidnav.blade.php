@@ -12,13 +12,12 @@
             <div class="image">
                 <img src="#" class="img-circle elevation-2" alt="User Image">
             </div>
+
             <div class="info">
                 <a href="#" class="d-block">{{auth()->guard('admin')->user()->name}}</a>
             </div>
         </div>
-
         <!-- SidebarSearch Form -->
-
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -33,7 +32,7 @@
                         </a>
                         <ul class="nav nav-treeview" style="display: none;">
                             <li class="nav-item">
-                                @if ($navbarItem->name != 'contact us')
+                                @if ($navbarItem->name != ('contact us'||'messages'))
                                     <a href="{{ url($navbarItem->route.'create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Create</p>

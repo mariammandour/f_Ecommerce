@@ -9,9 +9,8 @@
             <div class="container-fluid">
                 <h1 class="mt-4">Dashboard</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Dashboard/faq/display</li>
+                    <li class="breadcrumb-item active">Dashboard/contact/display</li>
                 </ol>
-
                 <div class="card mb-4">
 
                     <div class="card-body">
@@ -20,26 +19,32 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Question</th>
-                                        <th>Answer</th>
+                                        <th>name</th>
+                                        <th>email</th>
+                                        <th>subject</th>
+                                        <th>message</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
-                                        <th>Question</th>
-                                        <th>Answer</th>
+                                        <th>name</th>
+                                        <th>email</th>
+                                        <th>subject</th>
+                                        <th>message</th>
                                         <th>Action</th>
+                                    </tr>
                                 </tfoot>
                                 <tbody>
-                                    @foreach($faqs as $key => $faq)
+                                @foreach($messages as $key => $message)
                                         <tr>
                                             <td>{{++$key}}</td>
-                                            <td>{{$faq->question}}</td>
-                                            <td>{{substr($faq->answer,0,40)}}</td>
+                                            <td>{{$message->name}}</td>
+                                            <td>{{$message->email}}</td>
+                                            <td>{{$message->subject}}</td>
+                                            <td>{{$message->message}}</td>
                                             <td>
-                                                <a href="{{route('admin.faq.edit', [$faq->id])}}" class='btn btn-primary m-r-1em'>Edit</a>
                                                 <a href='' data-toggle="modal" data-target="#modal_single_del{{$key}}" class='btn btn-danger m-r-1em'>Remove </a>
 													<div class="modal" id="modal_single_del{{$key}}" tabindex="-1" role="dialog">
 														<div class="modal-dialog" role="document">
@@ -52,13 +57,13 @@
 																</div>
 
 																<div class="modal-body">
-																	Remove faq !!!!
+																	Remove message !!!!
 																</div>
 																<div class="modal-footer">
-																	<form action="{{route('admin.faq.delete')}}" method="post">
+																	<form action="{{route('admin.messages.delete')}}" method="post">
 																		@csrf
 																		@method('delete')
-                                                                        <input type="hidden" name="faq_id" value="{{$faq->id}}">
+                                                                        <input type="hidden" name="message_id" value="{{$message->id}}">
 																		<div class="not-empty-record">
 																			<button type="submit" class="btn btn-danger">Delete</button>
 																			<button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>

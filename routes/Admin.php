@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminAuth;
 use App\Http\Controllers\Admin\faqController;
 use App\Http\Controllers\Admin\sliderController;
 use App\Http\Controllers\Admin\contactController;
+use App\Http\Controllers\Admin\messagecontroller;
 
 
 /*
@@ -69,5 +70,13 @@ Route::group(['middleware' => 'Admin:admin'],function(){
             Route::put('update',[contactController::class,'update'])->name('update');
         });
     });
-    
+});
+
+Route::group(['middleware' => 'Admin:admin'],function(){
+    Route::group(['prefix'=> 'Admin', 'as'=> 'admin.'],function(){
+        Route::group(['prefix'=> 'messages', 'as'=> 'messages.'],function(){
+            Route::get('index',[messagecontroller::class,'index'])->name('index');
+            Route::delete('delete',[messagecontroller::class,'delete'])->name('delete');
+        });
+    });
 });
